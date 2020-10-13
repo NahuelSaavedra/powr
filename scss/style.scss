@@ -1,0 +1,133 @@
+@font-face {
+	font-family: helvetica;
+	src: url(../fonts/Helvetica.ttf);
+}
+
+ @font-face {
+ 	font-family: cooper;
+ 	src: url(../fonts/cooperblack.otf);
+ } 
+
+$font-sizes: ("small":3rem, "normal":7rem,"big":10rem);
+
+$h1: map-get($font-sizes, "small");
+$h2: map-get($font-sizes,"normal");
+$h3:map-get($font-sizes,"small");
+
+
+@mixin Titulos {
+  font-family: helvetica;
+  color: white;
+  font-size: $h1;
+}
+@mixin subtitulos {
+		font-family:cooper; 
+ 		color: white;
+ 		display: block;
+ 		align-items: center;
+ 		font-size:$h2 }
+ @mixin text{
+ 		font-family: helvetica;
+ 		color:white;
+ 		font-size: $h3
+ }
+
+@mixin spotify { width: 17vh;
+				height: 5vh;
+			}
+
+h1 { @include  Titulos; 
+	}
+h3 { @include text;
+	}
+h2 { @include subtitulos;
+	}
+
+
+.spotify { @include spotify
+			cursor: pointer;
+            color: black;
+            padding: auto;
+            border-radius: 1rem;
+           }
+.body{ background-image: url(../images/fondo.png); 
+     }
+.Logohead { 
+			width:12vh; 
+			height:8vh;
+			align-self: left;
+			cursor: pointer;
+			}
+header{ 
+		display: flex;
+        justify-content:space-around;
+        align-items: center;       
+        background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), 
+		linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+ 		background-blend-mode: multiply;
+		nav{
+			font-family: helvetica;
+			font-size: 1rem;
+			ul{		
+				list-style-type: none;
+				margin: 1rem;
+				padding: 0rem;
+				display: flex;
+				& :hover {background-color: #E4E4E1;
+						 background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, 
+						 rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, 
+						 rgba(143,152,157,0.60) 100%);
+	 					 background-blend-mode: normal, multiply;
+					     color: black}
+
+			 	li{	
+					cursor:pointer;
+					transition: all 200ms ease-in;
+					padding: 1rem ;
+					flex: auto;
+					text-align: center; 
+					a {
+						text-decoration: none;
+						color: white;
+					}
+				}
+
+			}
+		}
+	}
+
+
+
+ }
+@media (max-width: 880px) {
+	header{display: block;
+        width: 100%;
+        background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), 
+		linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
+ 		background-blend-mode: multiply;
+ 		text-align: center;
+		}
+	nav ul li { 	cursor: pointer;
+				padding:1vh ;
+				flex: block;
+				text-align: center; 
+					}
+nav ul li a:hover {background-color: #555;
+				color: white}
+
+nav ul li a{ text-decoration: none;
+			color: white;}
+ 
+	}
+	.main {
+		display: block;
+		width: 90%;
+		text-align:center;
+		line-height: normal;
+		font-size: auto;
+	}
+ 	.Logobody { display: block;
+ 				height: 600px;
+ 				width: 601px; }
+
+}
